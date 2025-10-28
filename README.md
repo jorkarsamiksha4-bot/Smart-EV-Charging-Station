@@ -1,53 +1,55 @@
-# 🔌 Smart EV Charging Station
+# ⚡ Smart EV Charging Station
 
 ## 🧠 Overview
-The **Smart EV Charging Station** is an Arduino-based system designed to automatically manage the charging process of electric vehicles using IR sensors, relays, and an LCD display. It provides a simple and efficient way to control charging operations and ensures safe energy management.
+The **Smart EV Charging Station** is an Arduino-based prototype that demonstrates the concept of contactless and automated EV charging. It uses an **IR sensor**, **Tesla coil**, **LED indicators**, and an **I2C LCD display** to manage and visualize the charging process efficiently. The system automatically detects the vehicle presence and controls the power supply through the Arduino.
 
 ---
 
 ## ⚙️ Components Used
-- **Arduino Uno**
-- **IR Sensor**
+- **Arduino UNO**
 - **16x2 I2C LCD Display**
-- **2-Channel Relay Module**
-- **LED Indicators**
-- **12V/5V Power Supply**
-- **Load (EV Simulation using a Bulb or Motor)**
+- **IR Sensor**
+- **LED (Indicator)**
+- **Tesla Coil (Wireless Power Transfer)**
+- **Resistors (for current limiting)**
+- **Breadboard**
+- **Jumper Wires**
+- **5V Power Supply / USB Power**
 
 ---
 
 ## 🔩 Working Principle
-1. When an EV (vehicle) is detected by the **IR Sensor**, the Arduino activates the **relay**, turning **ON** the charging circuit.  
-2. The **LCD** displays "Charging ON", and a green **LED** lights up.  
-3. When the vehicle is removed, the IR sensor stops detecting the object.  
-4. The **relay turns OFF**, power to the charging circuit is cut, and a red **LED** blinks to indicate "Charging OFF".
+1. The **IR Sensor** detects the presence of an EV (or any nearby object).  
+2. When detected, the Arduino activates the **Tesla Coil**, transferring energy wirelessly to the receiver side.  
+3. The **LCD display** shows "Charging ON" and the **LED** lights up to indicate active charging.  
+4. Once the EV is removed or sensor signal is lost, the Arduino turns **OFF** the coil and displays "Charging OFF".  
 
 ---
 
 ## 💡 Features
-- Automatic EV detection using IR sensor  
-- Relay-based charging control  
-- Real-time status on LCD display  
-- Energy-efficient and safe operation  
-- Easy to integrate with IoT for future expansion  
+- Automatic vehicle detection using IR sensor  
+- Wireless energy transfer using Tesla Coil  
+- Real-time charging status on LCD display  
+- Visual indication using LED  
+- Compact breadboard-based setup for demonstration  
 
 ---
 
 ## 🔋 Applications
-- Home-based smart EV charging setups  
-- Prototype models for IoT and automation projects  
-- Academic projects in Electronics and Telecommunication  
+- Wireless EV charging research and prototyping  
+- Educational and academic demonstration projects  
+- Arduino and IoT-based energy automation systems  
 
 ---
 
 ## 🚀 Future Scope
-- Integration with IoT platforms for remote monitoring  
-- Adding wireless power transfer module  
-- Solar energy integration for green charging solutions  
+- Integration with IoT for remote monitoring and energy usage tracking  
+- Solar energy input for eco-friendly charging  
+- Improved wireless power efficiency using tuned coils  
 
 ---
 
 ## 🧰 Author
 **Developed by: Samiksha Jorkar 
-**Platform:** Arduino Uno  
-**Category:** Embedded Systems / Renewable Energy Projects
+**Platform:** Arduino UNO  
+**Category:** Embedded Systems / Energy & Automation Projects
