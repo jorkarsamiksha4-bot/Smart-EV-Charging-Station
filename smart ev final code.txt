@@ -1,0 +1,57 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Initialize LCD (address 0x27, 16 cols, 2 rows)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Define pin numbers
+const int irSensor = 2;       // IR Sensor Output pin
+const int relayPin = 9;       // Relay control pin (IN1)
+const int greenLED = 10;      // Green LED for Charging ON
+const int redLED = 13;        // Red LED for Charging OFF / Standby
+
+void setup() {
+  lcd.begin(16, 2);           // Initialize the LCD
+  lcd.backlight();            // Turn on backlight
+
+  pinMode(irSensor, INPUT);   // IR sensor input
+  pinMode(relayPin, OUTPUT);  // Relay control
+  pinMode(greenLED, OUTPUT);  // Charging ON LED
+  pinMode(redLED, OUTPUT);    // Standby LED
+
+  // Initial welcome message
+  lcd.setCursor(0, 0);
+  lcd.print("Smart EV Charger");
+  lcd.setCursor(0, 1);
+  lcd.print("Initializing...");
+  delay(2000);
+  lcd.clear();
+}
+
+void loop() {
+  int irValue = digitalRead(irSensor);
+
+  if (irValue == LOW) {
+    // Object detected - Charging ON
+    digitalWrite(relayPin, HIGH);      // Turn ON relay
+    digitalWrite(greenLED, HIGH);      // Green LED ON
+    digitalWrite(redLED, LOW);         // Red LED OFF
+
+    lcd.setCursor(0, 0);
+    lcd.print("Vehicle Detected ");
+    lcd.setCursor(0, 1);
+    lcd.print("Charging...      ");
+  } else {
+    // No object detected - Charging OFF
+    digitalWrite(relayPin, LOW);       // Turn OFF relay
+    digitalWrite(greenLED, LOW);       // Green LED OFF
+    digitalWrite(redLED, HIGH);        // Red LED ON
+
+    lcd.setCursor(0, 0);
+    lcd.print("No Vehicle       ");
+    lcd.setCursor(0, 1);
+    lcd.print("Standby Mode     ");
+  }
+
+  delay(300);  // Small delay for stability
+}
