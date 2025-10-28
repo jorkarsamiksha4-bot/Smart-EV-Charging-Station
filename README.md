@@ -48,6 +48,6 @@ The **Smart EV Charging Station** is an Arduino-based system designed to automat
 ---
 
 ## 🧰 Author
-**Developed by:** [Your Name]  
+**Developed by: Samiksha Jorkar 
 **Platform:** Arduino Uno  
 **Category:** Embedded Systems / Renewable Energy Projects
